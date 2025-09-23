@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Random;
+import javax.mail.*;
+import javax.mail.internet.*;
+
 
 public class App {
     static public void main(String[] args) {
