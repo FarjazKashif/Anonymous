@@ -45,6 +45,12 @@ public class App {
                 System.out.println("Enter Password: ");
                 String password = sc.nextLine();
                 
+                while(!usersInfo.containsKey(email)) {
+                    System.out.println("Wrong Email....");
+                    
+                    System.out.print("Enter Email: ");
+                    email = sc.nextLine(); 
+                }
             default:
                 break;
         }
