@@ -4,6 +4,8 @@ import java.util.*;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 
+// import jakarta.mail.;
+
 public class OTPservice {
     // Sender's email & App Password
     private final String fromEmail = "farjazkashif01@gmail.com"; 

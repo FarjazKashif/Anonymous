@@ -1,8 +1,9 @@
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Random;
-import javax.mail.*;
-import javax.mail.internet.*;
+import java.util.*;
+import jakarta.mail.*;
+import jakarta.mail.internet.*;
 
 
 public class App {
@@ -23,15 +24,13 @@ public class App {
                 String password = sc.nextLine();
 
                 // OTP Code
-                Random rn = new Random();
-                int OTP = 100000 + rn.nextInt(999999);
-                System.out.print("Your OTP is: " + OTP);
+                
                 
                 int emailCode;
-                do {
-                    System.out.print("\nEnter OTP: ");
-                    emailCode = sc.nextInt();
-                } while(emailCode != OTP);
+                // do {
+                //     System.out.print("\nEnter OTP: ");
+                //     emailCode = sc.nextInt();
+                // } while(emailCode != OTP);
                 
                 // Username
                 String username = "Anonymous#" +  1000 + rn.nextInt(9000);
