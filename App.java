@@ -18,23 +18,23 @@ public class App {
         switch (option) {
             case 1: {
                 System.out.print("Enter Email: ");
-                String email = sc.nextLine();
-                
+                String email = sc.nextLine();                
                 System.out.print("Enter Password: ");
                 String password = sc.nextLine();
-
-                // OTP Code
-                
+                OTPservice email_OTP = new OTPservice(email);
+                int otp_code  = email_OTP.generateOTP();
+                email_OTP.sendOtpEmail(otp_code);
                 
                 int emailCode;
-                // do {
-                //     System.out.print("\nEnter OTP: ");
-                //     emailCode = sc.nextInt();
-                // } while(emailCode != OTP);
+                do {
+                    System.out.print("Enter OTP: ");
+                    emailCode = sc.nextInt();
+                } while(emailCode != otp_code);
                 
                 // Username
+                Random rn = new Random();
                 String username = "Anonymous#" +  1000 + rn.nextInt(9000);
-                // System.out.print("Username is " + username);
+                System.out.print("Username is " + username);
                 Register user = new Register(username, email, password);
                 usersInfo.put(user.getEmail(), user);
 

@@ -1,15 +1,11 @@
 import java.util.*;
-// import javax.mail.*;
-// import javax.mail.internet.*;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 
-// import jakarta.mail.;
-
 public class OTPservice {
     // Sender's email & App Password
-    private final String fromEmail = ""; // your Gmail App Password
-    private final String password = "";  // your Gmail App Password
+    private final String fromEmail = "farjazkashif01@gmail.com"; // your Gmail App Password
+    private final String password = "xqnk uxnx zcgz nkjz";  // your Gmail App Password
 
     private String toEmail;
 
@@ -40,6 +36,7 @@ public class OTPservice {
             }
         });
 
+        
         try {
             // Create message
             Message message = new MimeMessage(session);
