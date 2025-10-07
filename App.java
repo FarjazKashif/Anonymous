@@ -12,32 +12,38 @@ public class App {
         System.out.print("=============================\nWelcome to Anonymous Chat App\n=============================\n");
         System.out.print("1. Register\n2. Login\n3. Exit\nChoose an Option: ");
         
+        // OTPservice otpService = new OTPservice(null);
+
+
         HashMap<String, Register> usersInfo = new HashMap<>();
         int option = sc.nextInt();
         sc.nextLine();
         switch (option) {
             case 1: {
                 System.out.print("Enter Email: ");
-                String email = sc.nextLine();                
+                String email = sc.nextLine();
+                // otpService = new OTPservice(email);
+
                 System.out.print("Enter Password: ");
                 String password = sc.nextLine();
-                OTPservice email_OTP = new OTPservice(email);
-                int otp_code  = email_OTP.generateOTP();
-                email_OTP.sendOtpEmail(otp_code);
                 
-                int emailCode;
-                do {
-                    System.out.print("Enter OTP: ");
-                    emailCode = sc.nextInt();
-                } while(emailCode != otp_code);
+                // Getting OTP code
+                // int otp_code = otpService.generateOTP();
+                // otpService.sendOtpEmail(otp_code);
+                // int emailCode;
+                // do {
+                //     System.out.print("Enter OTP: ");
+                //     emailCode = sc.nextInt();
+                // } while(emailCode != otp_code);
                 
                 // Username
                 Random rn = new Random();
-                String username = "Anonymous#" +  1000 + rn.nextInt(9000);
+                int randomNum = 100 + rn.nextInt(900);  // range 100–999
+                String username = "Anonymous#" + randomNum;
                 System.out.print("Username is " + username);
                 Register user = new Register(username, email, password);
                 usersInfo.put(user.getEmail(), user);
-
+                System.out.println();
                 System.out.print("Welcome " + usersInfo.get(user.getEmail()).getUserName());
                 break;
             }
