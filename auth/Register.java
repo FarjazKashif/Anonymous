@@ -1,3 +1,4 @@
+package auth;
 import java.util.Random;
 
 public class Register {

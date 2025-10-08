@@ -4,8 +4,8 @@ import jakarta.mail.internet.*;
 
 public class OTPservice {
     // Sender's email & App Password
-    private final String fromEmail = "farjazkashif01@gmail.com"; // your Gmail App Password
-    private final String password = "xqnk uxnx zcgz nkjz";  // your Gmail App Password
+    private final String fromEmail = ""; // your Gmail App Password
+    private final String password = "";  // your Gmail App Password
 
     private String toEmail;
 
