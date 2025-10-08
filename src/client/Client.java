@@ -2,38 +2,47 @@ package client;
 
 import java.io.*;
 import java.net.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Client {
-
     public static void start(String username) {
-        try {
-            Socket socket = new Socket("localhost", 5000);
-            System.out.println("Connected to chat server...");
+        try (Socket socket = new Socket("localhost", 1234)) {
+            System.out.println("✅ Connected to server!");
 
-            // Read incoming messages
-            new Thread(() -> {
-                try {
-                    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    String message;
-                    while ((message = in.readLine()) != null) {
-                        System.out.println(message);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-
-            // Send messages
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             Scanner scanner = new Scanner(System.in);
-            System.out.println("You can start chatting now! 👇");
 
+            System.out.println(input.readLine()); // Welcome message from server
+
+            // Send messages to server
+            String msg;
             while (true) {
-                String text = scanner.nextLine();
-                out.println(username + ": " + text);
+                System.out.print(username + ": ");
+
+                if (!scanner.hasNextLine()) {
+                    System.out.println("⚠️ No input detected. Closing chat...");
+                    break;
+                }
+
+                msg = scanner.nextLine();
+                output.println(msg);
+
+                if (msg.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting chat...");
+                    break;
+                }
+
+                String serverResponse = input.readLine();
+                if (serverResponse == null) {
+                    System.out.println("⚠️ Server disconnected.");
+                    break;
+                }
+
+                System.out.println("Server: " + serverResponse);
             }
 
+            scanner.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

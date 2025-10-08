@@ -1,7 +1,6 @@
 package auth;
 
 import java.util.*;
-
 import client.Client; // Import your chat client
 
 public class App {

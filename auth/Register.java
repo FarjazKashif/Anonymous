@@ -1,22 +1,25 @@
 package auth;
-import java.util.Random;
 
 public class Register {
-    private String username;
+    private String userName;
     private String email;
     private String password;
 
-    int Random;
-
-    String getEmail() {
-        return email;
-    }
-    public String getUserName() {
-        return username;
-    }
-    Register(String username, String email, String password) {
-        this.username = username;
+    public Register(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }
-} 
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
