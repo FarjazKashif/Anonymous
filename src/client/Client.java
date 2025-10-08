@@ -5,6 +5,13 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client {
+    public static void main(String[] args) {
+        System.out.print("Enter username: ");
+        Scanner sc = new Scanner(System.in);
+        String username = sc.nextLine();
+        start(username);
+    }
+    
     public static void start(String username) {
         try (Socket socket = new Socket("localhost", 1234)) {
             System.out.println("✅ Connected to server!");
