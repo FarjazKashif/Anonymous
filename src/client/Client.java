@@ -12,7 +12,7 @@ public class Client {
         start(username);
     }
     
-    public static void start(String username) {
+    public static void startChat(String username) {
         try (Socket socket = new Socket("localhost", 1234)) {
             System.out.println("✅ Connected to server!");
 
