@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+// import src.server.Server.ClientHandler;
+
 public class Server {
     private static Set<PrintWriter> clientOutputs = new HashSet<>();
 
@@ -40,7 +42,8 @@ public class Server {
                 }
 
                 out.println("Welcome to Anonymous Chat!");
-                clientName = "Anonymous#" + (100 + new Random().nextInt(900));
+                // read username sent from client
+                clientName = in.readLine();
                 broadcast("🟢 " + clientName + " joined the chat!");
 
                 String message;

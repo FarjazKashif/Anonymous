@@ -22,4 +22,9 @@ public class Register {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return "Username: " + userName + ", Email: " + email + ", Password: " + password;
+    }
 }

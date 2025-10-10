@@ -32,7 +32,7 @@ public class App {
                 usersInfo.put(email, new Register(username, email, password));
                 System.out.println("Welcome " + username);
 
-                System.out.println("Detailed of HashMap: " + usersInfo);
+                System.out.println("Detailed of HashMap: " + usersInfo.get(email));
 
 
                 // pass global scanner
