@@ -15,7 +15,7 @@ public class App {
         HashMap<String, Register> usersInfo = new HashMap<>();
         int option = sc.nextInt();
         sc.nextLine(); // consume newline
-
+        
         switch (option) {
             case 1:
                 System.out.print("Enter Email: ");
@@ -29,6 +29,10 @@ public class App {
 
                 System.out.println("✅ Registration successful!");
                 System.out.println("Your username: " + username);
+
+                // set username in server
+                System.out.println("Initial Commit!");
+
                 usersInfo.put(email, new Register(username, email, password));
                 System.out.println("Welcome " + username);
 

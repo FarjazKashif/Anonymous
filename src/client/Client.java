@@ -12,10 +12,10 @@ public class Client {
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
+            System.out.println(input.readLine()); // Welcome message
+
             // 👉 send username to the server right after connection
             output.println(username);
-            
-            System.out.println(input.readLine()); // Welcome message
 
             String msg;
             while (true) {

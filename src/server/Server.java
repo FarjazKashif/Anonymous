@@ -14,8 +14,10 @@ public class Server {
 
         try (ServerSocket serverSocket = new ServerSocket(1234)) {
             while (true) {
+                // This line waits for a client to connect
                 Socket socket = serverSocket.accept();
                 System.out.println("👥 New client connected: " + socket.getInetAddress());
+                // This line starts a new thread (receptionist) to handle the client
                 new ClientHandler(socket).start();
             }
         } catch (IOException e) {
@@ -28,9 +30,14 @@ public class Server {
         private PrintWriter out;
         private BufferedReader in;
         private String clientName;
+        private String userNameString;
 
         ClientHandler(Socket socket) {
             this.socket = socket;
+        }
+
+        public void setUserName(String name) {
+            this.userNameString = name;
         }
 
         public void run() {
@@ -44,7 +51,7 @@ public class Server {
                 out.println("Welcome to Anonymous Chat!");
                 // read username sent from client
                 clientName = in.readLine();
-                broadcast("🟢 " + clientName + " joined the chat!");
+                broadcast("🟢 " + userNameString + " joined the chat!");
 
                 String message;
                 while ((message = in.readLine()) != null) {
