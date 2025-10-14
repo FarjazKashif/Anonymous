@@ -2,6 +2,7 @@ package auth;
 
 import client.Client;
 import java.util.*;
+import server.Server;
 
 public class App {
     static Scanner sc = new Scanner(System.in); // <-- single scanner for whole app
@@ -15,7 +16,7 @@ public class App {
         HashMap<String, Register> usersInfo = new HashMap<>();
         int option = sc.nextInt();
         sc.nextLine(); // consume newline
-        
+
         switch (option) {
             case 1:
                 System.out.print("Enter Email: ");
@@ -36,7 +37,7 @@ public class App {
                 usersInfo.put(email, new Register(username, email, password));
                 System.out.println("Welcome " + username);
 
-                System.out.println("Detailed of HashMap: " + usersInfo.get(email));
+                // System.out.println("Detailed of HashMap: " + usersInfo.get(email));
 
 
                 // pass global scanner

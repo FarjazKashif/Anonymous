@@ -5,18 +5,23 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client {
-    public static void start(String username, Scanner scanner) { // scanner passed from App
+    public static void start(String username, Scanner scanner) {
         try (Socket socket = new Socket("localhost", 1234)) {
             System.out.println("✅ Connected to server!");
 
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
-            System.out.println(input.readLine()); // Welcome message
-
-            // 👉 send username to the server right after connection
+            // ✅ Send username IMMEDIATELY after connection
             output.println(username);
 
+            // Now receive the welcome message
+            String welcome = input.readLine();
+            if (welcome != null) {
+                System.out.println(welcome);
+            }
+
+            // Chat loop
             String msg;
             while (true) {
                 System.out.print(username + ": ");
@@ -33,6 +38,7 @@ public class Client {
                     break;
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
