@@ -32,7 +32,7 @@ public class App {
                 System.out.println("Your username: " + username);
 
                 // set username in server
-                System.out.println("Initial Commit!");
+                // System.out.println("Initial Commit!");
 
                 usersInfo.put(email, new Register(username, email, password));
                 System.out.println("Welcome " + username);
