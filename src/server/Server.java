@@ -53,6 +53,9 @@ public class Server {
                     if (message.equalsIgnoreCase("exit")) {
                         break;
                     }
+                    if(message.trim().isEmpty()) {
+                        continue; // ignore empty messages
+                    }
                     broadcast(clientName + ": " + message);
                 }
 

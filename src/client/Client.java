@@ -24,13 +24,13 @@ public class Client {
             // Chat loop
             String msg;
             while (true) {
-                System.out.print(username + ": ");
                 if (!scanner.hasNextLine()) {
                     System.out.println("⚠️ No input detected. Closing chat...");
                     break;
                 }
-
+                
                 msg = scanner.nextLine();
+                System.out.print(username + ": ");
                 output.println(msg);
 
                 if (msg.equalsIgnoreCase("exit")) {
