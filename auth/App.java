@@ -17,6 +17,8 @@ public class App {
         int option = sc.nextInt();
         sc.nextLine(); // consume newline
 
+        String username = "";
+        
         switch (option) {
             case 1:
                 System.out.print("Enter Email: ");
@@ -26,7 +28,7 @@ public class App {
 
                 Random rn = new Random();
                 int randomNum = 100 + rn.nextInt(900);
-                String username = "Anonymous#" + randomNum;
+                username = "Anonymous#" + randomNum;
 
                 System.out.println("✅ Registration successful!");
                 System.out.println("Your username: " + username);
@@ -39,9 +41,20 @@ public class App {
 
                 // System.out.println("Detailed of HashMap: " + usersInfo.get(email));
 
-
+                break;
+                
+            }
+            System.out.print("1. General Chat\n2. Room\nChoose an Option: ");
+            option=sc.nextInt();
+            
+            switch (option) {
+                case 1:
+                System.out.println("Welcome to General Chat!");
                 // pass global scanner
                 Client.start(username, sc);
+                break;
+        
+            default:
                 break;
         }
     }
