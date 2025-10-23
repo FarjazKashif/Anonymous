@@ -73,7 +73,30 @@ public class App {
                 // pass global scanner
                 Client.start(username, sc);
                 break;
+            case 2:
+                int optionRoom;
+                System.out.println("Room Options:");
+                System.out.println("1. Create a Room");
+                System.out.println("2. Join a Room");
+                System.out.println();
 
+                switch (optionRoom) {
+                    case 1:
+                        System.out.print("Enter Room Name: ");
+                        String roomName = sc.nextLine();
+                        System.out.print("Create a Password: ");
+                        String password = sc.nextLine();
+
+                        break;
+                    case 2:
+                        System.out.print("Enter Room Name: ");
+                        roomName = sc.nextLine();
+                        Server.joinRoom(username, roomName);
+                        break;
+                
+                    default:
+                        break;
+                }
             default:
                 break;
         }
