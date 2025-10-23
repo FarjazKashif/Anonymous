@@ -22,6 +22,7 @@ public class App {
 
         HashMap<String, Register> usersInfo = new HashMap<>();
         int option = sc.nextInt();
+        int optionRoom;
         sc.nextLine(); // consume newline
 
         String username = "";
@@ -74,18 +75,22 @@ public class App {
                 Client.start(username, sc);
                 break;
             case 2:
-                int optionRoom;
+                System.out.println("------------------------------------");
                 System.out.println("Room Options:");
                 System.out.println("1. Create a Room");
                 System.out.println("2. Join a Room");
+                System.out.println("------------------------------------");
                 System.out.println();
-
+                optionRoom = sc.nextInt();
                 switch (optionRoom) {
                     case 1:
                         System.out.print("Enter Room Name: ");
                         String roomName = sc.nextLine();
+                        System.out.println();
+
                         System.out.print("Create a Password: ");
                         String password = sc.nextLine();
+                        System.out.println();
 
                         break;
                     case 2:
